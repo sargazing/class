@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<string.h>
+
+typedef struct point{
+	void *arr;
+	struct point *next;
+}point_t;
+
+typedef struct{
+	point_t *arr;
+	int size;
+	int nmemb;
+}head_point;
+
+void mystr(char **arr)
+{
+	*arr = malloc(10);
+	*arr = "hello";
+}

@@ -1,0 +1,72 @@
+卷1
+选择
+1	c
+2	D
+3	B
+4	A
+5	A
+6	D
+7	B
+8	C
+9	A
+10	C
+11	B
+12	D
+13	C
+14	D
+15	D
+16	A
+17	AC
+18	D
+19	B
+20	D
+卷二
+选择
+1	D
+2	D
+3	B
+4	B
+5	A
+6	B
+7	C
+8	D
+9	
+10	B
+11	D
+12	D
+13	C
+14	C
+15	A
+16	AC
+17	B
+18	B
+19	D
+20	A
+填空
+1	a / (sizeof(a) - 3) * 10 % 10 = N; a / (sizeof(a) - 3) * 10 % 10 = 0;
+2	10; 10; 8
+3	输出字符数
+4	随机值
+5	if(n == 0)
+		return 0;
+6	冒泡排序 ，插入排序， 选择排序
+7	4
+读程序
+1	输出hello world后继续输出
+2	if(strlen(str1) < 10)
+3	
+4	*s == '\0'
+	*s
+简答
+1	a)	int a
+	b)	int *a
+	c)  int **a
+	d)  int a[10]
+	e)	int *a[10]
+	f)	int (*a)[10]
+	g)	int *a(int num)
+	h)	int (*a)[10](int num)
+2	#define min(a, b) if(a > b) return b; else return a;
+3	作用于全局变量和函数， 限制此变量只能在本程序调用； 作用于局部变量， 延长此变量的生存周期至进程结束
+4	使变量无法修改；
+

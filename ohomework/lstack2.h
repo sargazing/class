@@ -1,0 +1,2 @@
+#ifndef __LSTACK
+

@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+
+#define SWAP(num1,num2) \
+	do{\
+	typeof(num1) num3;\
+	num3 = num1; num1 = num2; num2 = num3;\
+	}while(0)
+
+int main()
+{
+	srand(getpid());
+	
+	int a[10], j = 0, g = 0;
+
+	for(int i = 0; i < 10; i++)
+	{	
+		a[i] = rand() % 100;
+	
+		printf("%5d",a[i]);	
+
+		if(a[i] > a[j])
+			j = i;
+		if(a[i] < a[g])
+			g = i;
+
+	}
+	printf("\n");
+/*	
+	SWAP(a[j], a[g]);
+
+	for(int i = 0; i < 10; i++)
+		printf("%5d", a[i]);
+	
+	printf("\n");
+
+	printf("置换了第%d、%d项，分别为%d、%d", j + 1, g + 1, a[g], a[j]);
+
+	printf("\n");*/
+	printf("%p\n",a);
+	printf("%p\n",a+1);
+}
