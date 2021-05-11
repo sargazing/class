@@ -22,4 +22,5 @@ int seqlist_update(const seqlist_t *p, const void *key, cmp_t cmp, const void *n
 
 void seqlist_des(seqlist_t *p);
 
+static void _revers_list();
 #endif

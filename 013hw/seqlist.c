@@ -86,4 +86,3 @@ void seqlist_des(seqlist_t *p)
 	free(p);
 	p =NULL;	
 }
-

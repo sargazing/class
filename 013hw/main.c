@@ -1,74 +1,51 @@
-#include<stdio.h>
-#include"seqlist.h"
-#include<stdlib.h>
+#include <stdio.h>
 
-typedef struct 
+#include "list.h"
+
+static void showInt(const void *data)
 {
-	char *name;
+	const int *d = data;
 
-	int age;
-
-	char *num;
-}stu_t;
-typedef struct{
-	stu_t stude[2];
-
-	int len;
-}student_list;
-
-static void show_int(void *arr)
-{
-	const int *d = arr;
 	printf("%d\n", *d);
+}
 
-}	
-static int mycmp(const void *a, const void *b)
+static int cmpInt(const void *data, const void *key)
 {
-	const int *aa = a;
-	const int *bb = b;
+	const int *d = data;
+	const int *k = key;
 
-	if(*aa == *bb)
-	   return 1;
-	return 0;	
+	return *d - *k;
 }
 
 int main(void)
 {
-	student_list student;
-	
-	student.stude[1].name = "aasd";
-	student.stude[1].num = "15127632832";
-	student.stude[1].age = 23;
-	student.stude[0].name = "asd";
-	student.stude[0].num = "1867632832";
-	student.stude[0].age = 33;
+	int arr[] = {3,1,6,7,8,9,4};
+	listhead_t *head;
+	int del;
 
-	for(int j = 0; j < 2; j++)
-	{
-		puts(student.stude[j].name);
-		puts(student.stude[j].num);
+	listheadInit(sizeof(int), &head);
+
+	for (int i = 0; i < sizeof(arr) / sizeof(*arr); i++) {
+		listInsert(head, arr+i, HEADINSERT);
 	}
-	seqlist_t *seq;
 
-	seq = seqlist_int(sizeof(stu_t));
+	listTraval(head, showInt);
 
-	for(int i = 0; i < 6; i++)
-		seqlist_add(seq, &i);
-
-	seqlist_travel(seq, show_int);
+	printf("*****************delete******************\n");
+	del = 3;
+	listDelete(head, &del, cmpInt);
+	listTraval(head, showInt);
+	printf("*****************delete******************\n");
 	
-	int a = 0;
-	int b = 33;
+	reverse_list(head);
 
-	seq = seqlist_del(seq, &a, mycmp);
+	listTraval(head, showInt);
+	printf("*****************delete******************\n");
+	_list_des(head->head.next);
+	
+	listTraval(head, showInt);
+	listDestroy(head);
 
-	seqlist_travel(seq, show_int);
-
-	a++;
-	seqlist_update(seq, &a, mycmp, &b);
-
-	seqlist_travel(seq, show_int);
-
-	return 0;
 	return 0;
 }
+

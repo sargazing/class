@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+/*int myatoi(const char *ptr)
+{
+	int data = 0;
+	char tmp;
+	for(int i = 0; *(ptr+i); i++)
+	{
+		if(*(ptr + i) < '0' || *(ptr + i) > '9')
+			return -1;
+		else
+		{
+		//	tmp = *(ptr + i);
+
+			data = data * 10 + (*(ptr + i) - '0');
+		}
+	
+	}
+	return data;
+}
+*/
+void myitoa(int num, char *buf)
+{
+	int data = num;
+
+	int i = 0;
+
+	int j = 0;
+
+	if(data < 0)
+	{
+		*buf = '-';
+		j++;
+		num = num * (-1);
+		data = data * (-1);
+	}
+	for(; data ; data /= 10, i++);
+	*(buf + i) = '\0';
+	for(; i ; i--)
+	{
+		printf("%c\n", (char)(num % 10 + '0'));
+		*(buf + i + j - 1) = (char)(num % 10 + '0');
+		num /= 10;
+	}
+}
+
+int mystrcmp(const char *arr, const char *brr)
+{
+	int i;
+	for(i = 0; arr[i] != '\0' && arr[i] == brr[i]; i++);
+	return arr[i] - brr[i];
+}
+
+/*union a_t
+{
+	int b;
+	char c;
+};
+*/
+
+int main(int argc, char *argv[])
+{
+//	char arr[] = "helloadb";
+//	char brr[] = "helload";
+//	union a_t a;
+//	a.b = 0x12345678;
+//	printf("%d\n", mystrcmp(arr, brr));
+//	printf("%d\n", strcmp(arr, brr));
+//	printf("%#x\n", a.c);a
+//	char *p = "a";
+//	printf("%p\n", p);
+//	printf("%d\n", myatoi(argv[1]));
+
+	char buf[1024];
+
+	myitoa(-32463, buf);
+
+	puts(buf);
+
+	return 0;
+}
